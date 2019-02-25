@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+<style>
+    * {
+        font-family: 'Nunito', sans-serif;
+    }
+
+    .blackStar {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABkUlEQVQ4T5WSv0tbURTHz/e8oGQQoRSHzhl8995gtXbTQdClkA6FEnDo4Kh/gnP/hHYUnKQdJXZrh/6gQ0UpuffFIVuGIuLWIRrfOfJKEpKnSerdLt/z/Zx7vueCRh84534RUct7/4qI9L5SjPJbaysADrt6xXtfexCg2305M6nq9xDC6n8DjDErzPwtZ3juvT/OQ4ZGKJVK04VCYSmKovcAng4Wq+qpiGx3Op3TZrN51dNgjHnNzBUiWiSimIiiMcFm0g0RnanqiarWYK29APB4gmmU3EIcx+vMfARg6iEQVb0WkY1/GcRx/CKKomxlk57f65Gmafqy0Wh86ofonKuq6gGAkX+ju1IBsOm9/5Ddh4qttfsA3kwY5aP3vtrfwmCxtfYLgLVxAFX9HEJYvxfgnDsnorkJgD8hhCd3AMaYR8x8mTNfqOpsfkMiMpMkyd+hDIwxq8z8tRcUEe212+3dYrEIEXkLYKsXsKquhBB+DAHK5fK8iPwG8FNEdpIkCbl8FojoHRE9Y+bFer1+lum31g+ZA+j98pAAAAAASUVORK5CYII=");
+    }
+
+    .whiteStar {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABjElEQVQ4T5WSP0tcQRTFzxkXU8lCCFvYLW9m0CrxX6eFYJqAFkIQLCwsk4+QOh8hKQOpREtROy0SQwpDxEKQnTdvi1cEETuLNZt5N7ywK7tP326cbrj3/u6951yi5IkI4zg+AZBqrVdJykOpLAM455YB7OZxEVm21u49FpB3n+0Ajq21C/8N8N7PZ1n2tbdAKTUXRdGPIqRvBefcEwDTIvKR5ItC8imANwBOjTG33Ridc68B5PtOAZgEMFKmS2edPyQvAPwEsMdGo3FF8tmgogGxlN77pRDCPsnRx0BE5DeAl/808N6/yrIst2zg+D0NglJqJYqigzsR4zheE5EtAKW30QFkJNe11tv5v+jCZwAbQ1bZMcas3bnQm+ycOwKwOMSFQ2vtUhngEkBtCOCXtXb8HiBN06etVuu6UHwlItWiQ9VqdaxWq930aZAkyUII4UtXKACfSL5TSjGE8B7AZlczkvNa6299gGazOdFut89Ifgfw1hhz3jtNkiTPQwgfAMxUKpWper2eXyP+At5FljaPoIWfAAAAAElFTkSuQmCC");
+    }
+
+    .commentIcon {
+        line-height: 3.2em;
+        width: 3.2em;
+        height: 3.2em;
+        background: #e9e9e9;
+        color: #333;
+        display: block;
+        text-align: center;
+        border-radius: 50%;
+        font-weight: bold;
+    }
+
+    .customerReviews {
+        padding: 1em;
+        border: 1px solid rgba(33, 33, 33, .1);
+        overflow: auto;
+    }
+
+    .percent {
+        display: inline-block;
+        border-left: 1px solid rgba(33, 33, 33, .1);
+        border-right: 1px solid rgba(33, 33, 33, .1);;
+        padding: 0 1em;
+        margin-top: 1em;
+    }
+
+    .wBtn {
+        display: inline-block;
+        vertical-align: top;
+        padding-left: 1em;
+        margin-top: 1em;
+    }
+
+    .left1 {
+        display: inline-block;
+        padding-right: 1em;
+        vertical-align: top;
+        margin-top: 1em;
+    }
+
+    @media screen and (max-width: 600px) {
+        .percent {
+            border: none;
+            padding: .5em 0;
+            margin: 0;
+        }
+
+        .wBtn {
+            padding: .5em 0;
+            margin: 0;
+        }
+    }
+
+    @keyframes writeReview {
+        0% {
+            max-height: 0.0px;
+        }
+        2% {
+            max-height: 7.88px;
+        }
+        4% {
+            max-height: 15.76px;
+        }
+        6% {
+            max-height: 23.64px;
+        }
+        8% {
+            max-height: 31.52px;
+        }
+        10% {
+            max-height: 39.4px;
+        }
+        12% {
+            max-height: 47.28px;
+        }
+        14% {
+            max-height: 55.16px;
+        }
+        16% {
+            max-height: 63.04px;
+        }
+        18% {
+            max-height: 70.92px;
+        }
+        20% {
+            max-height: 78.8px;
+        }
+        22% {
+            max-height: 86.67999999999999px;
+        }
+        24% {
+            max-height: 94.56px;
+        }
+        26% {
+            max-height: 102.44px;
+        }
+        28% {
+            max-height: 110.32px;
+        }
+        30% {
+            max-height: 118.2px;
+        }
+        32% {
+            max-height: 126.08px;
+        }
+        34% {
+            max-height: 133.96px;
+        }
+        36% {
+            max-height: 141.84px;
+        }
+        38% {
+            max-height: 149.72px;
+        }
+        40% {
+            max-height: 157.6px;
+        }
+        42% {
+            max-height: 165.48px;
+        }
+        44% {
+            max-height: 173.35999999999999px;
+        }
+        46% {
+            max-height: 181.24px;
+        }
+        48% {
+            max-height: 189.12px;
+        }
+        50% {
+            max-height: 197.0px;
+        }
+        52% {
+            max-height: 204.88px;
+        }
+        54% {
+            max-height: 212.76px;
+        }
+        56% {
+            max-height: 220.64px;
+        }
+        58% {
+            max-height: 228.52px;
+        }
+        60% {
+            max-height: 236.4px;
+        }
+        62% {
+            max-height: 244.28px;
+        }
+        64% {
+            max-height: 252.16px;
+        }
+        66% {
+            max-height: 260.04px;
+        }
+        68% {
+            max-height: 267.92px;
+        }
+        70% {
+            max-height: 275.8px;
+        }
+        72% {
+            max-height: 283.68px;
+        }
+        74% {
+            max-height: 291.56px;
+        }
+        76% {
+            max-height: 299.44px;
+        }
+        78% {
+            max-height: 307.32px;
+        }
+        80% {
+            max-height: 315.2px;
+        }
+        82% {
+            max-height: 323.08px;
+        }
+        84% {
+            max-height: 330.96px;
+        }
+        86% {
+            max-height: 338.84px;
+        }
+        88% {
+            max-height: 346.71999999999997px;
+        }
+        90% {
+            max-height: 354.6px;
+        }
+        92% {
+            max-height: 362.48px;
+        }
+        94% {
+            max-height: 370.36px;
+        }
+        96% {
+            max-height: 378.24px;
+        }
+        98% {
+            max-height: 386.12px;
+        }
+        100% {
+            max-height: 394.0px;
+        }
+    }
+
+
+    .createReview {
+        width: 100%;
+        height: 0px;
+        overflow: auto;
+        transition: height 1s;
+        -moz-transition: height 1s, -moz-transform 2s linear; /* Firefox 4 */
+        -webkit-transition: height 1s, -webkit-transform 2s linear; /* Safari and Chrome */
+        -o-transition: height 1s, -o-transform 2s linear; /* Opera */
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    .inputReview {
+        width: 100%;
+        padding: .5em;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
+</style>
+<body>
+
+<div id="customerReviews" class="customerReviews">
+    <div style="width:100%;font-weight: bold"><span style="font-size:1.5em">Customer Reviews</span></div>
+    <div style="width:100%">
+        <div class="left1">
+            <div>
+                <span class="blackStar"></span>
+                <span class="blackStar"></span>
+                <span class="blackStar"></span>
+                <span class="blackStar"></span>
+                <span class="blackStar"></span>
+            </div>
+            <span>Based on 9 Reviews</span>
+        </div>
+        <div class="percent">
+            <div>
+                <div style="display: inline-block;">
+                    <span class="blackStar"></span>
+                    <span class="blackStar"></span>
+                    <span class="blackStar"></span>
+                    <span class="blackStar"></span>
+                    <span class="blackStar"></span>
+                </div>
+                <div style="display: inline-block;">
+                    <div style="height:1em;border:1px solid rgba(3,3,3,.2);width:10em">
+                        <div style="height:1em;background-color: #fbcd0a;width:100%"></div>
+                    </div>
+                </div>
+                <div style="display: inline-block;">
+                    <span>100%</span>
+                </div>
+            </div>
+            <div>
+                <div style="display: inline-block;">
+                    <span class="blackStar"></span>
+                    <span class="blackStar"></span>
+                    <span class="blackStar"></span>
+                    <span class="blackStar"></span>
+                    <span class="whiteStar"></span>
+                </div>
+                <div style="display: inline-block;">
+                    <div style="height:1em;border:1px solid rgba(3,3,3,.2);width:10em">
+                        <div style="height:1em;background-color: #fbcd0a;width:90%"></div>
+                    </div>
+                </div>
+                <div style="display: inline-block;">
+                    <span>90%</span>
+                </div>
+            </div>
+            <div>
+                <div style="display: inline-block;">
+                    <span class="blackStar"></span>
+                    <span class="blackStar"></span>
+                    <span class="blackStar"></span>
+                    <span class="whiteStar"></span>
+                    <span class="whiteStar"></span>
+                </div>
+                <div style="display: inline-block;">
+                    <div style="height:1em;border:1px solid rgba(3,3,3,.2);width:10em">
+                        <div style="height:1em;background-color: #fbcd0a;width:80%"></div>
+                    </div>
+                </div>
+                <div style="display: inline-block;">
+                    <span>80%</span>
+                </div>
+            </div>
+            <div>
+                <div style="display: inline-block;">
+                    <span class="blackStar"></span>
+                    <span class="blackStar"></span>
+                    <span class="whiteStar"></span>
+                    <span class="whiteStar"></span>
+                    <span class="whiteStar"></span>
+                </div>
+                <div style="display: inline-block;">
+                    <div style="height:1em;border:1px solid rgba(3,3,3,.2);width:10em">
+                        <div style="height:1em;background-color: #fbcd0a;width:70%"></div>
+                    </div>
+                </div>
+                <div style="display: inline-block;">
+                    <span>70%</span>
+                </div>
+            </div>
+            <div>
+                <div style="display: inline-block;">
+                    <span class="blackStar"></span>
+                    <span class="whiteStar"></span>
+                    <span class="whiteStar"></span>
+                    <span class="whiteStar"></span>
+                    <span class="whiteStar"></span>
+                </div>
+                <div style="display: inline-block;">
+                    <div style="height:1em;border:1px solid rgba(3,3,3,.2);width:10em">
+                        <div style="height:1em;background-color: #fbcd0a;width:60%"></div>
+                    </div>
+                </div>
+                <div style="display: inline-block;">
+                    <span>60%</span>
+                </div>
+            </div>
+        </div>
+        <div class="wBtn">
+            <button onclick="toggleWriteReview(this)"
+                    style="font-size:1.2em;font-weight:500;padding:.3em;border:1px solid #333;width:10em;background: #00000000;color:#333">
+                Write a review
+            </button>
+        </div>
+    </div>
+    <div style="width:100%;padding-top: .5em;margin-top: 1em;">
+
+        <div id="createReview" class="createReview" data-open="close">
+            <div>
+                <div style="padding-bottom: .5em">
+                    <b>Name</b><br/>
+                    <input type="text" placeholder="Enter your name(public)" class="inputReview">
+                </div>
+                <div style="padding-bottom: .5em">
+                    <b>Email</b><br/>
+                    <input type="email" placeholder="Enter your email(private)"  class="inputReview">
+                </div>
+                <div style="padding-bottom: .5em">
+                    <b>Rating</b><br/>
+                    <div>
+                        <span class="blackStar"></span>
+                        <span class="blackStar"></span>
+                        <span class="blackStar"></span>
+                        <span class="blackStar"></span>
+                        <span class="blackStar"></span>
+                    </div>
+                </div>
+                <div style="padding-bottom: .5em">
+                    <b>Review Title</b><br/>
+                    <input type="text" placeholder="give your review a title"  class="inputReview">
+                </div>
+
+                <div style="padding-bottom: .5em">
+                    <b>Review </b><br/>
+                    <textarea type="text" placeholder="give your review a title"
+                              class="inputReview" rows="4"></textarea>
+                </div>
+            </div>
+        </div>
+        <!--评论列表-->
+        <div style="width:100%;border-top: 1px solid rgba(3,3,3,.1);padding-top: .5em">
+            <!--评论条目-->
+            <div style="width:100%;overflow: auto">
+                <!--评论头部-->
+                <div style="float:left">
+                    <!--图标-->
+                    <span class="commentIcon">L</span>
+                </div>
+                <div style="float:left;padding-left: 1em">
+                    <!--用户信息-->
+                    <div>
+                        <i class="blackStar"></i>
+                        <i class="blackStar"></i>
+                        <i class="blackStar"></i>
+                        <i class="blackStar"></i>
+                        <i class="blackStar"></i>
+                        <span>02/13/2019</span>
+                    </div>
+                    <div>
+                        <span style="background-color: black;color:#fff;font-size:.8em;font-weight: bold;padding: 0 .3em">Verified</span>
+                        <span style="font-weight: bold">Lindsey Sanchez</span>
+                    </div>
+                </div>
+            </div>
+            <div style="width:100%">
+                <b>Boyfriend loved them!</b><br/>
+                <span>I purchased these after seeing them on a popular YouTube channel, The Tim Tracker, for my boyfriend. I loved that they looked modern and hip, and the touch of wood is super cool. They shipped quickly, arrived in record time and he absolutely loved them. They are his new favorite sunglasses!</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleWriteReview(node) {
+        let eleCreateReview = document.getElementById("createReview");
+        // data-open="close"
+        if ("close" === eleCreateReview.getAttribute("data-open")) {
+            node.innerText = "Cancel review";
+            eleCreateReview.setAttribute("data-open", "open");
+            // eleCreateReview.style.display="block";
+            eleCreateReview.style.height = "390px";
+
+
+        } else {
+            eleCreateReview.setAttribute("data-open", "close");
+            node.innerText = "Write a review";
+            eleCreateReview.style.height = "0px";
+            // eleCreateReview.style.display = 'none';
+        }
+    }
+</script>
+
+
+</body>
+</html>
